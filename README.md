@@ -2,8 +2,6 @@
 
 Un proyecto de tipo prueba elaborado para TechAndSolve.
 
-El codigo de la aplicacion implementada en los frameworks react y redux se encuentra en la siguiente ubicacion: https://drive.google.com/open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj
-
 DESCRIPCION DEL PROYECTO ACTUAL
 
 El proyecto actual contiene dos componentes elaborados con el proposito de suplir una solucion al problema denominado "Procesamiento de tags". El problema "Procesamiento de Tags" solicita que a partir de unos datos introducidos por el usuario se genere una plantilla HTML con algunos tags personalizados creados a peticion del usuario.
@@ -33,7 +31,8 @@ GUIA PARA LA EJECUCION DEL PROYECTO
         donde se encuentra ubicado el proyecto: "npm start". La anterior sentencia lo que hace es inicializar el servidor npm 
         para ejecutar la aplicacion en un navegador web y mostrar el resultado actual. 
     4. Descargamos el componente tagprocessor. Este componente es un workspace en eclipse que contiene el microservicio 
-        implementado para realizar la logica de procesamiento de los datos suministrados por el usuario.
+        implementado para realizar la logica de procesamiento de los datos suministrados por el usuario: 
+        https://drive.google.com/open?id=195xCn0JLW2rbUzNjcHgGdVvWnymR8Ge8
     5. Inicializamos el workspace en eclipse.
     6. Instalamos el plugin de Spring en eclipse: Spring Tools (aka Spring IDE and Spring Tool Suite) 3.9.1 RELEASE. Si no 
         tenemos instalado el plugin denominado "MAVEN (JAVA EE) Integration for eclipse WTP (Luna/Mars) 1.2.0" tambien lo 
@@ -43,6 +42,4 @@ GUIA PARA LA EJECUCION DEL PROYECTO
     10. Ejecutamos la opcion denominada: "Spring Boot App". El componente se encuentra desplegado por defecto en la siguiente   
           URL: localhost:8080/api/procesartag
     12. Procedemos a rellenar el formulario y a enviarlo para ver el resultado de la ejecucion.
-    
-        
     
