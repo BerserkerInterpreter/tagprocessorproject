@@ -23,9 +23,10 @@ GUIA PARA LA EJECUCION DEL PROYECTO
 
  * PRIMERA POSIBILIDAD: EJECUCION DE LOS WORKSPACES
     
-    1. Primero descargamos el componente "tag-processor-app" de la siguiente URL: https://drive.google.com  
-        /open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj. Como consejo: Google analiza el componente en busca de virus. 
-        El cargado de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar por un momento.
+    1. Primero descargamos el componente "tag-processor-app" de la siguiente URL: 
+        https://drive.google.com/open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj. Como consejo: Google analiza el componente 
+        en busca de virus. El cargado de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar  
+        por un momento.
     2. Descomprimimos el componente descargado.
     3. Ejecutamos la siguiente sentencia en una consola de comandos estando ubicados directamente en la carpeta o directorio base   
         donde se encuentra ubicado el proyecto: "npm start". La anterior sentencia lo que hace es inicializar el servidor npm 
