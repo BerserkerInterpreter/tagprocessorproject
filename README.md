@@ -10,9 +10,9 @@ El proyecto actual contiene dos componentes elaborados con el proposito de supli
 
 Los componentes actuales implementados como solucion a la problematica actual son los siguientes:
   
-  1. tag-processor-app: Componente implementado en los frameworks reactjs y reduxjs. Este componente contiene un formulario el cual 
-      tiene dos campos html de tipo "textarea". El primero de los campos recibe un valor que puede ser como el siguiente: ### 
-      trabajemos en html, a partir del anterior valor se genera una plantilla html con un tag personalizado basado en los
+  1. tag-processor-app: Componente implementado en los frameworks reactjs y reduxjs. Este componente contiene un formulario el    
+      cual tiene dos campos html de tipo "textarea". El primero de los campos recibe un valor que puede ser como el siguiente:
+      "###" trabajemos en html, a partir del anterior valor se genera una plantilla html con un tag personalizado basado en los
       los caracteres especiales de tipo numeral. El segundo de los campos tiene el proposito de mostrar una plantilla html    
       personalizada a partir de los datos suministrados por el usuario en el primer campo.
       
@@ -26,10 +26,10 @@ GUIA PARA LA EJECUCION DEL PROYECTO
  * PRIMERA POSIBILIDAD: EJECUCION DE LOS WORKSPACES
     
     1. Primero descargamos el componente "tag-processor-app" de la siguiente URL: https://drive.google.com  
-        /open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj. Como consejo: Google analiza el componente en busca de virus. El cargado   
-        de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar por un momento.
+        /open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj. Como consejo: Google analiza el componente en busca de virus. 
+        El cargado de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar por un momento.
     2. Descomprimimos el componente descargado.
     3. Ejecutamos la siguiente sentencia en una consola de comandos estando ubicados directamente en la carpeta o directorio base   
-        donde se encuentra ubicado el proyecto: "npm start". La anterior sentencia lo que hace es inicializar el servidor npm para
-        ejecutar la aplicacion en un navegador web y mostrar el resultado actual.    
+        donde se encuentra ubicado el proyecto: "npm start". La anterior sentencia lo que hace es inicializar el servidor npm 
+        para ejecutar la aplicacion en un navegador web y mostrar el resultado actual.    
     
