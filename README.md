@@ -17,8 +17,8 @@ Los componentes actuales implementados como solucion a la problematica actual so
       personalizada a partir de los datos suministrados por el usuario en el primer campo.
       
   2. tagprocessorproject: Componente creado utilizando el framework Spring Boot para la implementacion de microservicios     
-      en java. Este componente contiene la logica para procesar los datos suministrados por el usuario y a partir de estos generar 
-      una plantilla html personalizada con algunos tags especiales.
+      en java. Este componente contiene la logica para procesar los datos suministrados por el usuario y a partir de estos  
+      generar una plantilla html personalizada con algunos tags especiales.
       
 
 GUIA PARA LA EJECUCION DEL PROYECTO
@@ -31,5 +31,18 @@ GUIA PARA LA EJECUCION DEL PROYECTO
     2. Descomprimimos el componente descargado.
     3. Ejecutamos la siguiente sentencia en una consola de comandos estando ubicados directamente en la carpeta o directorio base   
         donde se encuentra ubicado el proyecto: "npm start". La anterior sentencia lo que hace es inicializar el servidor npm 
-        para ejecutar la aplicacion en un navegador web y mostrar el resultado actual.    
+        para ejecutar la aplicacion en un navegador web y mostrar el resultado actual. 
+    4. Descargamos el componente tagprocessor. Este componente es un workspace en eclipse que contiene el microservicio 
+        implementado para realizar la logica de procesamiento de los datos suministrados por el usuario.
+    5. Inicializamos el workspace en eclipse.
+    6. Instalamos el plugin de Spring en eclipse: Spring Tools (aka Spring IDE and Spring Tool Suite) 3.9.1 RELEASE. Si no 
+        tenemos instalado el plugin denominado "MAVEN (JAVA EE) Integration for eclipse WTP (Luna/Mars) 1.2.0" tambien lo 
+        instalamos.
+    8. Click derecho sobre la ubicacion del proyecto en el gestor de proyectos de eclipse.
+    9. Nos paramos sobre la opcion "Run as".
+    10. Ejecutamos la opcion denominada: "Spring Boot App". El componente se encuentra desplegado por defecto en la siguiente   
+          URL: localhost:8080/api/procesartag
+    12. Procedemos a rellenar el formulario y a enviarlo para ver el resultado de la ejecucion.
+    
+        
     
