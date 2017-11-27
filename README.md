@@ -43,4 +43,12 @@ GUIA PARA LA EJECUCION DEL PROYECTO
     10. Ejecutamos la opcion denominada: "Spring Boot App". El componente se encuentra desplegado por defecto en la siguiente   
           URL: localhost:8080/api/procesartag
     12. Procedemos a rellenar el formulario y a enviarlo para ver el resultado de la ejecucion.
-    
+   
+ * SEGUNDA POSIBILIDAD: EJECUCION DEL EJECUTABLE DEL MICROSERVICIO
+ 
+    1. Realizamos la guia anterior pero con una diferencia, utilizaremos el ejecutable del componente tagprocessorproject 
+       (microservicio implementado en java). Descargamos el componente tagprocessorproject de la siguiente URL:
+       https://drive.google.com/open?id=10jmKhHhHZzKGRQsrV51CKkybl_3YdYuR
+    2. Descomprimimos el componente descargado
+    3. En la carpeta base del componente descargado ejecutamos la siguiente sentencia: java -jar tagprocessorproject.jar. El 
+        componte se desplegara en la siguiente ruta: http://localhost:8080/api/procesartag.
