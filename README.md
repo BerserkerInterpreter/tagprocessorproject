@@ -4,7 +4,7 @@ Un proyecto de tipo prueba elaborado para TechAndSolve.
 
 El codigo de la aplicacion implementada en los frameworks react y redux se encuentra en la siguiente ubicacion: https://drive.google.com/open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj
 
-GUIA PARA LA EJECUCION DEL PROYECTO
+DESCRIPCION DEL PROYECTO ACTUAL
 
 El proyecto actual contiene dos componentes elaborados con el proposito de suplir una solucion al problema denominado "Procesamiento de tags". El problema "Procesamiento de Tags" solicita que a partir de unos datos introducidos por el usuario se genere una plantilla HTML con algunos tags personalizados creados a peticion del usuario.
 
@@ -19,3 +19,17 @@ Los componentes actuales implementados como solucion a la problematica actual so
   2. tagprocessorproject: Componente creado utilizando el framework Spring Boot para la implementacion de microservicios     
       en java. Este componente contiene la logica para procesar los datos suministrados por el usuario y a partir de estos generar 
       una plantilla html personalizada con algunos tags especiales.
+      
+
+GUIA PARA LA EJECUCION DEL PROYECTO
+
+ * PRIMERA POSIBILIDAD: EJECUCION DE LOS WORKSPACES
+    
+    1. Primero descargamos el componente "tag-processor-app" de la siguiente URL: https://drive.google.com  
+        /open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj. Como consejo: Google analiza el componente en busca de virus. El cargado   
+        de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar por un momento.
+    2. Descomprimimos el componente descargado.
+    3. Ejecutamos la siguiente sentencia en una consola de comandos estando ubicados directamente en la carpeta o directorio base   
+        donde se encuentra ubicado el proyecto: "npm start". La anterior sentencia lo que hace es inicializar el servidor npm para
+        ejecutar la aplicacion en un navegador web y mostrar el resultado actual.    
+    
