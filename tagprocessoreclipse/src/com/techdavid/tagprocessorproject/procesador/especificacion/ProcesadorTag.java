@@ -6,7 +6,7 @@ import com.techdavid.tagprocessorproject.excepcion.ExcepcionProcesadorTag;
 import com.techdavid.tagprocessorproject.modelo.Tag;
 
 public interface ProcesadorTag {
-	public default List<String> procesarTag(String pageData) throws ExcepcionProcesadorTag {
+	public default List<String> procesarTag(String datosTag) throws ExcepcionProcesadorTag {
 		return null;
 	}
 	
@@ -14,12 +14,13 @@ public interface ProcesadorTag {
 		return null;
 	}
 	
-	public default String procesarTag(String pageDate, String plantilla) {
+	public default String procesarTag(String datosTag, String plantilla) {
 		return null;
 	}
 	
-	public default List<String> procesarTag(String pageDate, List<String> listaPlantilla, Integer indice) throws Exception {
+	public default List<String> procesarTag(String datosTag, List<String> listaPlantilla, Integer indice) throws Exception {
 		return null;
 	}
 
 }
+

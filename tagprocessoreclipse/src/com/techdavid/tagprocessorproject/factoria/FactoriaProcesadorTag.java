@@ -7,10 +7,10 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import com.techdavid.tagprocessorproject.excepcion.ExcepcionProcesadorTag;
-import com.techdavid.tagprocessorproject.implementacion.ProcesadorTagNumeral;
-import com.techdavid.tagprocessorproject.implementacion.ProcesadorTagPadre;
 import com.techdavid.tagprocessorproject.modelo.Tag;
 import com.techdavid.tagprocessorproject.procesador.especificacion.ProcesadorTag;
+import com.techdavid.tagprocessorproject.procesador.implementacion.ProcesadorTagNumeral;
+import com.techdavid.tagprocessorproject.procesador.implementacion.ProcesadorTagPadre;
 
 public class FactoriaProcesadorTag {
 	
@@ -21,7 +21,7 @@ public class FactoriaProcesadorTag {
 	private static final String filePath = "/home/ld-david/Documentos/workspace_eclipse/workspace_techandsolve/tagprocessorproject/src/main/resources/com/techdavid/tagprocessorproject/configuracion/tags.properties";
 	
 	public static final String plantilla = 
-			"<!DOCTYPE html>,<html>,<head>,<meta charset=\"utf-8\">,<title>,</title>,</head>,<body>,</body>,</html>"; 
+			"<!DOCTYPE​ ​ html>,<html>,<head>,<meta charset=\"utf-8\">,<title>,</title>,</head>,<body>,</body>,</html>"; 
 	
 	private FactoriaProcesadorTag() throws ExcepcionProcesadorTag { 
 		this.cargarTags(filePath);
@@ -45,7 +45,7 @@ public class FactoriaProcesadorTag {
 	private ProcesadorTag getProcesadorTagNumeral() {
 		Tag tagNumeral = null;
 		for(Tag tag : listaTags) {
-			if(tag.getName().equals(constanteNumeral)) {
+			if(tag.getNombre().equals(constanteNumeral)) {
 				tagNumeral = tag;
 			}
 		}
@@ -57,17 +57,25 @@ public class FactoriaProcesadorTag {
 		try(FileReader fileReader = new FileReader(filePath);
 				BufferedReader bufferedReader = new BufferedReader(fileReader);) {
 			while(true) {
-				String configuredTag = bufferedReader.readLine();
-				if(configuredTag == null) {
+				String tagConfigurado = bufferedReader.readLine();
+				if(tagConfigurado == null) {
 					break;
 				}
-				String[] tagTokens = configuredTag.split(constanteIgual);
-				Tag tag = new Tag(tagTokens[0], tagTokens[1], tagTokens[2]);
-				listaTags.add(tag);
+				this.adicionarTag(tagConfigurado);
 			}
 		} catch(Exception ex) {
 			String mensaje = "ERROR: An error has ocurred while reading the tag file.";
 			throw new ExcepcionProcesadorTag(mensaje, ex);
 		}
 	}
+	
+	private void adicionarTag(String tagConfigurado) {
+		String[] arrayTagConfigurado = tagConfigurado.split(constanteIgual);
+		String nombreTag = arrayTagConfigurado[0];
+		String inicioTag = arrayTagConfigurado[1];
+		String finalTag = arrayTagConfigurado[2];
+		Tag tag = new Tag(nombreTag, inicioTag, finalTag);
+		listaTags.add(tag);
+	}
 }
+

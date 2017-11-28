@@ -17,20 +17,21 @@ public class ControladorTag {
 		return controladorTag;
 	}
 
-	public String procesarTag(String pageData) {
+	public String procesarTag(String datosTag) {
 		String resultado = "";
 		try {
 			ProcesadorTag procesadorTag = 
 					FactoriaProcesadorTag.getFactoriaProcesadorTag().getProcesadorTag();
-			List<String> listaPageTags = procesadorTag.procesarTag(pageData);
-			for(String strTag : listaPageTags) {
-				resultado += strTag;
+			List<String> listaDatosTag = procesadorTag.procesarTag(datosTag);
+			for(String strDatoTag : listaDatosTag) {
+				resultado += strDatoTag;
 			}
 		} catch (ExcepcionProcesadorTag ex) {
 			ex.printStackTrace();
-			resultado = pageData;
+			resultado = datosTag;
 		}
 		return resultado;
 	}
 
 }
+

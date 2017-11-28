@@ -14,14 +14,15 @@ import com.techdavid.tagprocessorproject.controlador.ControladorTag;
 public class FachadaProcesadorTag {
 	@RequestMapping(method = RequestMethod.GET, value = "/procesartag",
 			produces = "application/json")
-	public ResponseEntity<String> procesarTag(String tagData) {
+	public ResponseEntity<String> procesarTag(String datosTag) {
 		ControladorTag controladorTag =
 				ControladorTag.getControladorTag();
-		String tagInformation = controladorTag.procesarTag(tagData);
+		String informacionTags = controladorTag.procesarTag(datosTag);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Access-Control-Allow-Origin", "*");
 		ResponseEntity<String> responseEntity =
-				new ResponseEntity<String>(tagInformation, responseHeaders, HttpStatus.ACCEPTED);
+				new ResponseEntity<String>(informacionTags, responseHeaders, HttpStatus.ACCEPTED);
 		return responseEntity;
 	}
 }
+
