@@ -4,6 +4,7 @@ public class Tag implements Comparable<Tag> {
 	private String nombre;
 	private String inicioTag;
 	private String finalTag;
+	private Tag tagPadre;
 	public Tag(String nombre, String inicioTag) {
 		this.nombre = nombre;
 		this.inicioTag = inicioTag;
@@ -31,12 +32,18 @@ public class Tag implements Comparable<Tag> {
 	public void setFinalTag(String finalTag) {
 		this.finalTag = finalTag;
 	}
-	
+	public Tag getTagPadre() {
+		return tagPadre;
+	}
+	public void setTagPadre(Tag tagPadre) {
+		this.tagPadre = tagPadre;
+	}
+
 	@Override
 	public int compareTo(Tag anotherTag) {
 		return this.finalTag.compareTo(anotherTag.getFinalTag());
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,8 +79,5 @@ public class Tag implements Comparable<Tag> {
 			return false;
 		return true;
 	}
-	
-	
-		
-}
 
+}

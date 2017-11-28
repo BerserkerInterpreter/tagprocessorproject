@@ -14,9 +14,11 @@ const estadoInicial = {
 
 const tagNumeral = /#/g;
 const saltoLinea = /\n/g;
+const arroba = /@/g;
 
 const entidadUrlNumeral = "%23";
 const entidadUrlSaltoLinea = "%5Cn";
+const entidadUrlArroba = "%40";
 
 export default class Form extends React.Component {
   state = {
@@ -38,6 +40,7 @@ export default class Form extends React.Component {
     }
     url = url.replace(tagNumeral, entidadUrlNumeral);
     url = url.replace(saltoLinea, entidadUrlSaltoLinea);
+    url = url.replace(arroba, entidadUrlArroba);
     return url;
   };
 
@@ -106,4 +109,3 @@ export default class Form extends React.Component {
   }
 
 }
-

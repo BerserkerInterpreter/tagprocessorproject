@@ -14,17 +14,17 @@ import com.techdavid.tagprocessorproject.procesador.especificacion.ProcesadorTag
 public class ProcesadorTagNumeral implements ProcesadorTag {
 
 	private Tag tagNumeral;
-	
+
 	private static final String separador = "\\s";
 	private static final String strBody = "</body>";
 	private static final String validador = ".+[a-zA-Z]+";
-	
+
 	public ProcesadorTagNumeral(Tag tagNumeral) {
 		this.tagNumeral = tagNumeral;
 	}
 
 	@Override
-	public List<String> procesarTag(String datosTag, List<String> listaPlantilla, Integer indice) throws ExcepcionProcesadorTag {
+	public List<String> procesarTag(String datosTag, List<String> listaPlantilla) throws ExcepcionProcesadorTag {
 		String[] arrayDatosTag = datosTag.split(separador);
 		this.validarArrayDatosTag(arrayDatosTag);
 		List<String> listaArrayDatosTag = this.producirListaArrayPageData(arrayDatosTag);
@@ -40,7 +40,7 @@ public class ProcesadorTagNumeral implements ProcesadorTag {
 		listaPlantilla.add(indiceCierreTag, finalTag);
 		return listaPlantilla;
 	}
-	
+
 	private int obtenerIndiceElementoBody(List<String> listaPlantilla) {
 		Integer indiceElementoBody = null;
 		for(int indice = 0; indice < listaPlantilla.size(); indice++) {
@@ -54,7 +54,7 @@ public class ProcesadorTagNumeral implements ProcesadorTag {
 
 	private int evaluarCantidadTags(String pageData) throws ExcepcionProcesadorTag {
 		int condicionIndice = 0;
-		int cantidadEncuentros = 0; 
+		int cantidadEncuentros = 0;
 		int fromPosition = 0;
 		do {
 			condicionIndice = pageData.indexOf(tagNumeral.getNombre(), fromPosition);
@@ -64,7 +64,7 @@ public class ProcesadorTagNumeral implements ProcesadorTag {
 					String mensaje = "ERROR: La cantidad de tags # excede el limite fijado.";
 					throw new ExcepcionProcesadorTag(mensaje);
 				}
-				fromPosition += 1;
+				fromPosition = condicionIndice + 1;
 			}
 		} while(condicionIndice != -1);
 		return cantidadEncuentros;
@@ -77,14 +77,14 @@ public class ProcesadorTagNumeral implements ProcesadorTag {
 			throw new ExcepcionProcesadorTag(message);
 		}
 	}
-	
+
 	private List<String> producirListaArrayPageData(String[] arrayPageData) {
 		List<String> listaArrayPageData = Arrays.asList(arrayPageData);
 		List<String> listaArrayPageDataModificable = new ArrayList<>();
 		listaArrayPageDataModificable.addAll(listaArrayPageData);
 		return listaArrayPageData;
 	}
-	
+
 	private String obtenerTexto(List<String> listaArrayPageData) {
 		String elementoTexto = "";
 		for(int indice = 1; indice < listaArrayPageData.size(); indice++) {

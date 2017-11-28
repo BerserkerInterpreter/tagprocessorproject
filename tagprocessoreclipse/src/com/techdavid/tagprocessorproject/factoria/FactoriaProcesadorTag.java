@@ -2,6 +2,8 @@ package com.techdavid.tagprocessorproject.factoria;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -9,39 +11,54 @@ import java.util.TreeSet;
 import com.techdavid.tagprocessorproject.excepcion.ExcepcionProcesadorTag;
 import com.techdavid.tagprocessorproject.modelo.Tag;
 import com.techdavid.tagprocessorproject.procesador.especificacion.ProcesadorTag;
+import com.techdavid.tagprocessorproject.procesador.implementacion.ProcesadorTagArroba;
 import com.techdavid.tagprocessorproject.procesador.implementacion.ProcesadorTagNumeral;
 import com.techdavid.tagprocessorproject.procesador.implementacion.ProcesadorTagPadre;
 
 public class FactoriaProcesadorTag {
-	
+
 	private static FactoriaProcesadorTag factoriaProcesadorTag;
 	private Set<Tag> listaTags = new TreeSet<Tag>();
 	private static final String constanteNumeral = "#";
 	private static final String constanteIgual = "=";
-	private static final String filePath = "/home/ld-david/Documentos/workspace_eclipse/workspace_techandsolve/tagprocessorproject/src/main/resources/com/techdavid/tagprocessorproject/configuracion/tags.properties";
-	
-	public static final String plantilla = 
-			"<!DOCTYPE​ ​ html>,<html>,<head>,<meta charset=\"utf-8\">,<title>,</title>,</head>,<body>,</body>,</html>"; 
-	
-	private FactoriaProcesadorTag() throws ExcepcionProcesadorTag { 
+	private static final String constanteArroba = "@";
+	private static final String filePath = "tags.properties";
+
+	public static final String plantilla =
+			"<!DOCTYPE​ ​ html>,<html>,<head>,<meta charset=\"utf-8\">,<title>,</title>,</head>,<body>,</body>,</html>";
+
+	private FactoriaProcesadorTag() throws ExcepcionProcesadorTag {
 		this.cargarTags(filePath);
 	}
-	
+
 	public static FactoriaProcesadorTag getFactoriaProcesadorTag() throws ExcepcionProcesadorTag {
 		if(factoriaProcesadorTag == null) {
 			factoriaProcesadorTag = new FactoriaProcesadorTag();
 		}
 		return factoriaProcesadorTag;
 	}
-	
+
 	public ProcesadorTag getProcesadorTag() {
 		Set<ProcesadorTag> listaProcesadorTag = new HashSet<ProcesadorTag>();
 		ProcesadorTag procesadorTagNumeral = this.getProcesadorTagNumeral();
+		ProcesadorTag procesadorTagArroba = this.getProcesadorTagArroba();
 		listaProcesadorTag.add(procesadorTagNumeral);
+		listaProcesadorTag.add(procesadorTagArroba);
 		ProcesadorTag procesadorTag = new ProcesadorTagPadre(listaTags, plantilla, listaProcesadorTag);
 		return procesadorTag;
 	}
-	
+
+	private ProcesadorTag getProcesadorTagArroba() {
+		Tag tagArroba = null;
+		for(Tag tag : listaTags) {
+			if(tag.getNombre().equals(constanteArroba)) {
+				tagArroba = tag;
+			}
+		}
+		ProcesadorTag procesadorTagArroba = new ProcesadorTagArroba(tagArroba);
+		return procesadorTagArroba;
+	}
+
 	private ProcesadorTag getProcesadorTagNumeral() {
 		Tag tagNumeral = null;
 		for(Tag tag : listaTags) {
@@ -52,9 +69,11 @@ public class FactoriaProcesadorTag {
 		ProcesadorTag procesadorTagNumeral = new ProcesadorTagNumeral(tagNumeral);
 		return procesadorTagNumeral;
 	}
-	
+
 	private void cargarTags(String filePath) throws ExcepcionProcesadorTag {
-		try(FileReader fileReader = new FileReader(filePath);
+		Path path = Paths.get(filePath);
+		path = path.toAbsolutePath();
+		try(FileReader fileReader = new FileReader(path.toString());
 				BufferedReader bufferedReader = new BufferedReader(fileReader);) {
 			while(true) {
 				String tagConfigurado = bufferedReader.readLine();
@@ -68,7 +87,7 @@ public class FactoriaProcesadorTag {
 			throw new ExcepcionProcesadorTag(mensaje, ex);
 		}
 	}
-	
+
 	private void adicionarTag(String tagConfigurado) {
 		String[] arrayTagConfigurado = tagConfigurado.split(constanteIgual);
 		String nombreTag = arrayTagConfigurado[0];
@@ -78,4 +97,3 @@ public class FactoriaProcesadorTag {
 		listaTags.add(tag);
 	}
 }
-
