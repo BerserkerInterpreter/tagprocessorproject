@@ -21,34 +21,20 @@ Los componentes actuales implementados como solucion a la problematica actual so
 
 GUIA PARA LA EJECUCION DEL PROYECTO
 
- * PRIMERA POSIBILIDAD: EJECUCION DE LOS WORKSPACES
+ * PRIMERA POSIBILIDAD: EJECUCION DE LOS COMPONENTES
     
     1. Primero descargamos el componente "tag-processor-app" de la siguiente URL: 
-        https://drive.google.com/open?id=1H1WjJkn2YHU7KKNAjv-cuiNa1d2LISvj. Como consejo: Google analiza el componente 
+        https://drive.google.com/open?id=1BM96tQM_8jjC88VswVAtw4zIEFvHMbBN. Como consejo: Google analiza el componente 
         en busca de virus. El cargado de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar  
         por un momento.
     2. Descomprimimos el componente descargado.
     3. Ejecutamos la siguiente sentencia en una consola de comandos estando ubicados directamente en la carpeta o directorio base   
         donde se encuentra ubicado el proyecto: "npm start". La anterior sentencia lo que hace es inicializar el servidor npm 
         para ejecutar la aplicacion en un navegador web y mostrar el resultado actual. 
-    4. Descargamos el componente tagprocessor. Este componente es un workspace en eclipse que contiene el microservicio 
+    4. Descargamos el componente tagprocessor. Este componente contiene el microservicio 
         implementado para realizar la logica de procesamiento de los datos suministrados por el usuario: 
-        https://drive.google.com/open?id=1n23FoaFykJ4aCgjk5Pw8YqnVAkXP1YDj
-    5. Inicializamos el workspace en eclipse.
-    6. Instalamos el plugin de Spring en eclipse: Spring Tools (aka Spring IDE and Spring Tool Suite) 3.9.1 RELEASE. Si no 
-        tenemos instalado el plugin denominado "MAVEN (JAVA EE) Integration for eclipse WTP (Luna/Mars) 1.2.0" tambien lo 
-        instalamos.
-    8. Click derecho sobre la ubicacion del proyecto en el gestor de proyectos de eclipse.
-    9. Nos paramos sobre la opcion "Run as".
-    10. Ejecutamos la opcion denominada: "Spring Boot App". El componente se encuentra desplegado por defecto en la siguiente   
-          URL: localhost:8080/api/procesartag
-    12. Procedemos a rellenar el formulario y a enviarlo para ver el resultado de la ejecucion.
-   
- * SEGUNDA POSIBILIDAD: EJECUCION DEL EJECUTABLE DEL MICROSERVICIO
- 
-    1. Realizamos la guia anterior pero con una diferencia, utilizaremos el ejecutable del componente tagprocessorproject 
-       (microservicio implementado en java). Descargamos el componente tagprocessorproject de la siguiente URL:
-       https://drive.google.com/open?id=10jmKhHhHZzKGRQsrV51CKkybl_3YdYuR
-    2. Descomprimimos el componente descargado
-    3. En la carpeta base del componente descargado ejecutamos la siguiente sentencia: java -jar tagprocessorproject.jar. El 
+        https://drive.google.com/open?id=15PvO7Ww__LmYcox-jdBdaegJsO7-mFuQ
+    5. Descomprimimos el componente descargado.
+    6. En la carpeta base del componente descargado ejecutamos la siguiente sentencia: java -jar tagprocessorproject.jar. El 
         componte se desplegara en la siguiente ruta: http://localhost:8080/api/procesartag.
+    7. Procedemos a rellenar el formulario y a enviarlo para ver el resultado de la ejecucion.
