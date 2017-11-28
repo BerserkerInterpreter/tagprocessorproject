@@ -1,56 +1,73 @@
-import React from 'react';
+import React from "react";
 
 import { applyMiddleware, createStore } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import axios from "axios";
 
-const initialState = {
-  fetching: false,
-  fetched: false,
-  users: [],
+const estadoInicial = {
+  trayendo: false,
+  traido: false,
+  usuarios: [],
   error: null
 };
 
+const tagNumeral = /#/g;
+const saltoLinea = /\n/g;
+
+const entidadUrlNumeral = "%23";
+const entidadUrlSaltoLinea = "%5Cn";
+
 export default class Form extends React.Component {
   state = {
-    tagsCode: "tdfd",
-    processedHtmlCode: "fff"
+    codigoTags: "",
+    codigoHtmlProcesado: ""
   };
 
-  change = e => {
+  cambiarEstado = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
-  onSubmit = e => {
-    e.preventDefault();
-    console.log(this.state);
-    console.log(this.state.tagsCode);
-    var url = "http://localhost:8080/api/procesartag?tagData=";
-    var arrayTagsCode = this.state.tagsCode.split(" ");
-    for(var i = 0; i < arrayTagsCode.length; i++) {
-      url += arrayTagsCode[i] + "%20";
+  procesarUrl = e => {
+    var url = "http://localhost:8080/api/procesartag?datosTag=";
+    var arrayCodigoTags = this.state.codigoTags.split(" ");
+    for(var indice = 0; indice < arrayCodigoTags.length; indice++) {
+      url += arrayCodigoTags[indice] + "%20";
     }
-    console.log(url);
-    url = url.replace(/#/g,"%23");
-    url = url.replace(/\n/g,"%5Cn");
-    console.log(url);
+    url = url.replace(tagNumeral, entidadUrlNumeral);
+    url = url.replace(saltoLinea, entidadUrlSaltoLinea);
+    return url;
+  };
+
+  enviarDatos = url => {
     axios.get(url)
-      .then((response) => {
+      .then((respuesta) => {
         //dispatch({type: "RECEIVE_USERS", payload: response.data })
         console.log("Al recibir los datos.");
-        console.log(response.data);
-        this.state.processedHtmlCode = response.data;
+        console.log(respuesta.data);
+        this.state.codigoHtmlProcesado = respuesta.data;
         this.setState({
-          ["processedHtmlCode"]: response.data
+          ["codigoHtmlProcesado"]: respuesta.data
         });
       })
       .catch((err) => {
         // dispatch({type: "FETCH_USERS_ERROR", payload: err })
         console.log('An error has ocurred.');
       })
+  };
+
+  enviar = e => {
+    e.preventDefault();
+    console.log(this.state);
+    console.log(this.state.tagsCode);
+    var url = this.procesarUrl();
+    console.log(url);
+    url = url.replace(tagNumeral, entidadUrlNumeral);
+    url = url.replace(saltoLinea, entidadUrlSaltoLinea);
+    console.log(url);
+    this.enviarDatos(url);
   };
 
   render() {
@@ -62,14 +79,14 @@ export default class Form extends React.Component {
           <h3>Introduce el codigo de tags deseado</h3>
           <form>
             <textarea
-              name="tagsCode" rows="4" cols="50"
-              value={this.state.tagsCode}
-              onChange={e => this.change(e)}>
+              name="codigoTags" rows="4" cols="50"
+              value={this.state.codigoTags}
+              onChange={e => this.cambiarEstado(e)}>
               Hola!!!!
             </textarea>
             <br/>
             <br/>
-            <button onClick={e => this.onSubmit(e)}>Submit</button>
+            <button onClick={e => this.enviar(e)}>Submit</button>
           </form>
         </div>
         <br/>
@@ -77,9 +94,9 @@ export default class Form extends React.Component {
           <h3>Resultado del codigo ejecutado en HTML</h3>
           <form>
             <textarea
-              name="processedHtmlCode" rows="4" cols="50"
-              value={this.state.processedHtmlCode}
-              onChange={e => this.change(e)}>
+              name="codigoHtmlProcesado" rows="4" cols="50"
+              value={this.state.codigoHtmlProcesado}
+              onChange={e => this.cambiarEstado(e)}>
               Html code
             </textarea>
           </form>
@@ -89,3 +106,4 @@ export default class Form extends React.Component {
   }
 
 }
+
