@@ -1,28 +1,43 @@
-package com.techdavid.tagprocessorproject.fachada;
+package com.techdavid.tagprocessorproject.test.fachada;
 
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import com.techdavid.tagprocessorproject.controlador.ControladorTag;
+import com.techdavid.tagprocessorproject.fachada.FachadaProcesadorTag;
 
-@RestController
-@RequestMapping("/api")
-public class FachadaProcesadorTag {
-	@RequestMapping(method = RequestMethod.GET, value = "/procesartag",
-			produces = "application/json")
-	public ResponseEntity<String> procesarTag(String datosTag) {
-		ControladorTag controladorTag =
-				ControladorTag.getControladorTag();
-		String informacionTags = controladorTag.procesarTag(datosTag);
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Access-Control-Allow-Origin", "*");
-		ResponseEntity<String> responseEntity =
-				new ResponseEntity<String>(informacionTags, responseHeaders, HttpStatus.ACCEPTED);
-		return responseEntity;
+import junit.framework.Assert;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class FachadaProcesadorTagTest {
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testProcesarTag() {
+		String testString = "#​ Aprendamos​ HTML\n"
+				+ "### Conceptos basicos";
+		FachadaProcesadorTag fachadaProcesadorTag =
+				new FachadaProcesadorTag();
+		ResponseEntity responseEntity = fachadaProcesadorTag.procesarTag(testString);
+		String respuestaResponseEntity = (String) responseEntity.getBody();
+		Assert.assertNotNull(respuestaResponseEntity);
+		Assert.assertNotSame("ERROR: La respuesta esta vacia.", "", respuestaResponseEntity);
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testProcesarTagFallo() {
+		String stringPrueba = "#​Aprendamos​ HTML";
+		FachadaProcesadorTag fachadaProcesadorTag =
+				new FachadaProcesadorTag();
+		ResponseEntity responseEntity = fachadaProcesadorTag.procesarTag(stringPrueba);
+		String respuesta = (String) responseEntity.getBody();
+		Assert.assertNotNull(respuesta);
+		Assert.assertEquals(stringPrueba, respuesta);
+	}
+
 }
 
