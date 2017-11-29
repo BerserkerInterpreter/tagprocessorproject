@@ -21,7 +21,7 @@ GUIA PARA LA EJECUCION DEL PROYECTO
  * PRIMERA POSIBILIDAD: EJECUCION DE LOS COMPONENTES
     
     1. Primero descargamos el componente "tag-processor-app" de la siguiente URL: 
-        hhttps://drive.google.com/open?id=1BM96tQM_8jjC88VswVAtw4zIEFvHMbBN. Como consejo: Google analiza el componente 
+        https://drive.google.com/open?id=1BM96tQM_8jjC88VswVAtw4zIEFvHMbBN. Como consejo: Google analiza el componente 
         en busca de virus. El cargado de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar  
         por un momento.
     2. Descomprimimos el componente descargado.
