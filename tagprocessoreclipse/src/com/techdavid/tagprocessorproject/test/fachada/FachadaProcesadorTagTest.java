@@ -26,6 +26,34 @@ public class FachadaProcesadorTagTest {
 		Assert.assertNotNull(respuestaResponseEntity);
 		Assert.assertNotSame("ERROR: La respuesta esta vacia.", "", respuestaResponseEntity);
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testProcesarTagFallo() {
+		String stringPrueba = "#​Aprendamos​ HTML";
+		FachadaProcesadorTag fachadaProcesadorTag =
+				new FachadaProcesadorTag();
+		ResponseEntity responseEntity = fachadaProcesadorTag.procesarTag(stringPrueba);
+		String respuesta = (String) responseEntity.getBody();
+		Assert.assertNotNull(respuesta);
+		Assert.assertEquals(stringPrueba, respuesta);
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Test
+	public void testProcesarAnidadoArroba() {
+		String stringPrueba = "@# ​Aprendamos​ HTML";
+		FachadaProcesadorTag fachadaProcesadorTag =
+				new FachadaProcesadorTag();
+		ResponseEntity responseEntity = fachadaProcesadorTag.procesarTag(stringPrueba);
+		String respuesta = (String) responseEntity.getBody();
+		Assert.assertNotNull(respuesta);
+		String resultadoEsperado = 
+				"<!DOCTYPE​ ​ html><html><head><meta charset=\"utf-8\">"
+				+ "<title></title></head><body><div><h1>Aprendamos HTML </h1>"
+				+ "</div></body></html>";
+		Assert.assertEquals(resultadoEsperado, respuesta);
+	}
 
 }
 
