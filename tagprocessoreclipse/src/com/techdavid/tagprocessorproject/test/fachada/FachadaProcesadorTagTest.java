@@ -25,6 +25,11 @@ public class FachadaProcesadorTagTest {
 		String respuestaResponseEntity = (String) responseEntity.getBody();
 		Assert.assertNotNull(respuestaResponseEntity);
 		Assert.assertNotSame("ERROR: La respuesta esta vacia.", "", respuestaResponseEntity);
+		String resultadoEsperado = 
+				"<!DOCTYPE​ ​ html><html><head><meta charset=\"utf-8\">"
+				+ "<title></title></head><body><h1>Aprendamos HTML </h1>"
+				+ "<h3>Conceptos basicos </h3></body></html>";
+		Assert.assertEquals(resultadoEsperado, respuestaResponseEntity);
 	}
 	
 	@SuppressWarnings("deprecation")
