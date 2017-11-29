@@ -38,3 +38,10 @@ GUIA PARA LA EJECUCION DEL PROYECTO
     6. En la carpeta base del componente descargado ejecutamos la siguiente sentencia: java -jar tagprocessorproject.jar. El 
         componte se desplegara en la siguiente ruta: http://localhost:8080/api/procesartag.
     7. Procedemos a rellenar el formulario y a enviarlo para ver el resultado de la ejecucion.
+
+  * ACTUALIZACIONES
+
+	1. La utilizacion del tag arroba "@" junto con el tag de numeral generara un cierre de la etiqueta
+		<div> sobre la etiqueta <h>. Por ejemplo:
+
+			- @# Aprendamos Html
