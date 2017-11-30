@@ -8,11 +8,8 @@ El proyecto actual contiene dos componentes elaborados con el proposito de supli
 
 Los componentes actuales implementados como solucion a la problematica actual son los siguientes:
   
-  1. tag-processor-app: Componente implementado en los frameworks reactjs y reduxjs. Este componente contiene un formulario el    
-      cual tiene dos campos html de tipo "textarea". El primero de los campos recibe un valor que puede ser como el siguiente:
-      "###" trabajemos en html, a partir del anterior valor se genera una plantilla html con un tag personalizado basado en los
-      los caracteres especiales de tipo numeral. El segundo de los campos tiene el proposito de mostrar una plantilla html    
-      personalizada a partir de los datos suministrados por el usuario en el primer campo.
+  1. tag-processor-app: Componente implementado en los frameworks reactjs y reduxjs. Este componente contiene un 
+  	formulario el cual tiene dos campos html de tipo "textarea". El primero de los campos recibe un valor que puede ser como	el siguiente: "###" trabajemos en html, a partir del anterior valor se genera una plantilla html con un tag personalizado 	  basado en los los caracteres especiales de tipo numeral. El segundo de los campos tiene el proposito de mostrar una 		plantilla html personalizada a partir de los datos suministrados por el usuario en el primer campo.
       
   2. tagprocessorproject: Componente creado utilizando el framework Spring Boot para la implementacion de microservicios     
       en java. Este componente contiene la logica para procesar los datos suministrados por el usuario y a partir de estos  
@@ -24,7 +21,7 @@ GUIA PARA LA EJECUCION DEL PROYECTO
  * PRIMERA POSIBILIDAD: EJECUCION DE LOS COMPONENTES
     
     1. Primero descargamos el componente "tag-processor-app" de la siguiente URL: 
-        hhttps://drive.google.com/open?id=1BM96tQM_8jjC88VswVAtw4zIEFvHMbBN. Como consejo: Google analiza el componente 
+        https://drive.google.com/open?id=1BM96tQM_8jjC88VswVAtw4zIEFvHMbBN. Como consejo: Google analiza el componente 
         en busca de virus. El cargado de la pagina y cuadro de dialogo de descarga se puede demorar un poco, se aconseja esperar  
         por un momento.
     2. Descomprimimos el componente descargado.
@@ -42,6 +39,6 @@ GUIA PARA LA EJECUCION DEL PROYECTO
   * ACTUALIZACIONES
 
 	1. La utilizacion del tag arroba "@" junto con el tag de numeral generara un cierre de la etiqueta
-		<div> sobre la etiqueta <h>. Por ejemplo:
+		"< div >" sobre la etiqueta "< h >". Por ejemplo:
 
 			- @# Aprendamos Html
