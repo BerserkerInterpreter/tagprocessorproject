@@ -14,25 +14,25 @@ import java.util.NavigableMap;
 
 import com.techdavid.tagprocessorproject.excepcion.ExcepcionProcesadorTag;
 import com.techdavid.tagprocessorproject.modelo.Tag;
-import com.techdavid.tagprocessorproject.procesador.especificacion.ProcesadorTag;
+import com.techdavid.tagprocessorproject.procesador.especificacion.ProcesadorTag;;
 
 public class ProcesadorTagPadre implements ProcesadorTag {
-
+	
 	private String plantilla;
 	private Set<Tag> listaTags;
 	private Set<ProcesadorTag> listaProcesadorTag =
 			new HashSet<ProcesadorTag>();
-
+	
 	private static final String constanteSaltoLinea = "\\\\n";
 	private static final String constanteComa = ",";
 	private static final Integer constanteMenosUno = -1;
-
+	
 	public ProcesadorTagPadre(Set<Tag> listaTags, String plantilla, Set<ProcesadorTag> listaProcesadorTag) {
 		this.plantilla = plantilla;
 		this.listaTags = listaTags;
 		this.listaProcesadorTag = listaProcesadorTag;
 	}
-
+	
 	@Override
 	public List<String> procesarTag(String datosTag) throws ExcepcionProcesadorTag {
 		try {
@@ -46,15 +46,15 @@ public class ProcesadorTagPadre implements ProcesadorTag {
 			throw new ExcepcionProcesadorTag(mensaje, ex);
 		}
 	}
-
-	private void procesarTags(String[] arrayDatosTag, List<String> listaElementosPlantilla)
+	
+	private void procesarTags(String[] arrayDatosTag, List<String> listaElementosPlantilla) 
 		throws Exception {
 		for(String datosTag : arrayDatosTag) {
 			Map<Integer, Tag> listaBusquedaTags = this.buscarTags(datosTag);
 			for(Map.Entry<Integer, Tag> entradaTag : listaBusquedaTags.entrySet()) {
 				for(ProcesadorTag procesadorTag : listaProcesadorTag) {
 					if(entradaTag.getValue().equals(procesadorTag.getTag())) {
-						listaElementosPlantilla =
+						listaElementosPlantilla = 
 								procesadorTag.procesarTag(datosTag, listaElementosPlantilla);
 						break;
 					}
@@ -74,7 +74,7 @@ public class ProcesadorTagPadre implements ProcesadorTag {
 	}
 
 	private Map<Integer, Tag> buscarTags(String datosTag) {
-		NavigableMap <Integer, Tag> listaBusquedaTags = new TreeMap<>();
+		NavigableMap<Integer, Tag> listaBusquedaTags = new TreeMap<>();
 		for(Tag tag : listaTags) {
 			int indice = datosTag.indexOf(tag.getNombre());
 			if(indice == constanteMenosUno) {
