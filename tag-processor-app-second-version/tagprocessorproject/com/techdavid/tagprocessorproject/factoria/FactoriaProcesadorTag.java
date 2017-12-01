@@ -28,7 +28,7 @@ public class FactoriaProcesadorTag {
 	private static final String constanteDinero = "$";
 	private static final String constanteAmpersand = "&";
 	private static final String constantePipeline = "!";
-	private static final String filePath = "/home/ld-david/Documentos/workspace_eclipse/workspace_techandsolve/tagprocessorproject/src/main/resources/com/techdavid/tagprocessorproject/configuracion/tags.properties";
+	private static final String filePath = "tags.properties";
 	
 	public static final String plantilla = 
 			"<!DOCTYPE​ ​ html>,<html>,<head>,<meta charset=\"utf-8\">,<title>,</title>,</head>,<body>,</body>,</html>"; 
