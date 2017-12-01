@@ -41,4 +41,4 @@ GUIA PARA LA EJECUCION DEL PROYECTO
 	1. La utilizacion del tag arroba "@" junto con el tag de numeral generara un cierre de la etiqueta
 		"< div >" sobre la etiqueta "< h >". Por ejemplo:
 
-			- @# Aprendamos Html
+			- @ # Aprendamos Html
